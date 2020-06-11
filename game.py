@@ -1,12 +1,13 @@
 from stacknode import *
+import contextlib
 
 print("\n/-\ Ханойские башни /_\\")
 
 # Create the Stacks
 stacks = []
-left_stack = Stack("левый")
-middle_stack = Stack("средний")
-right_stack = Stack("правый")
+left_stack = Stack("a")
+middle_stack = Stack("b")
+right_stack = Stack("c")
 stacks.append(left_stack)
 stacks.append(middle_stack)
 stacks.append(right_stack)
@@ -32,6 +33,9 @@ def get_input():
             letter = choices[i]
             print("{0} : {1}".format(letter, name))
         user_input = input("")
+        if user_input == 'exit':
+            print("Вы вышли из игры")
+            quit()
         print(user_input)
         if user_input in choices:
             for i in range(len(stacks)):
